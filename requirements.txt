@@ -1,7 +1,37 @@
-httpx[http2]
-pillow
-pywebview
-pywebview[qt]; sys_platform == 'linux' or sys_platform == 'darwin'
-reportlab
-ebooklib
-BeautifulSoup4
+# requirements.txt
+# Минимальные версии для корректной работы
+
+# HTTP клиент с поддержкой HTTP/2
+httpx>=0.24.0,<1.0.0
+
+# HTTP клиент с поддержкой HTTP/2
+httpx[http2]>=0.24.0,<1.0.0
+
+# Асинхронная работа с файлами
+aiofiles>=23.0.0
+
+# Повторные попытки при сбоях
+tenacity>=8.0.0
+
+# Красивый вывод в консоль
+rich>=13.0.0
+
+# Работа с EPUB файлами
+ebooklib>=0.18.0
+ebookmeta>=1.0.0
+
+# Обработка изображений
+Pillow>=10.0.0
+
+# Парсинг XML/HTML
+lxml>=4.9.0
+beautifulsoup4>=4.12.0
+
+# Метаданные аудиофайлов
+mutagen>=1.46.0
+
+# Привязка к ffmpeg (опционально, можно использовать subprocess)
+ffmpeg-python>=0.2.0
+
+# Веб-отображение для авторизации (опционально)
+pywebview>=4.0.0

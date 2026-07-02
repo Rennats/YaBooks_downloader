@@ -1,21 +1,17 @@
-# RU_Bookmate_downloader
+# Yandex Books downloader
 ## Установка зависимостей:
-`pip install -r requirements.txt`
+*pip install -r requirements.txt*
 
-## Авторизоваться в аккаунт Яндекс
+## Авторизация в аккаунт Яндекс
+Для доступа к книгам используется токен, для получения которого необходима авторизация
 ![Авторизация](https://github.com/kettle017/RU_Bookmate_downloader/assets/37309120/bb3453eb-5d44-4410-b2e1-05193c88333e)
 
-## Примеры запуска скрипта:
-Для определения нужного флага смотрите на URL, в нем всегда есть подсказка: https://bookmate.ru/<флаг>/<id>\
-1. Скачать аудиокнигу в максимальном качестве:\
-`python RUBookmatedownloader.py audiobook <id> --max_bitrate`
-3. Скачать аудиокнигу в обычном качестве:\
-`python RUBookmatedownloader.py audiobook <id>`
-4. Скачать текстовую книгу:\
-`python RUBookmatedownloader.py book <id>`
-5. Скачать комикс:\
-`python RUBookmatedownloader.py comicbook <id>`
-6. Скачать текстовую книгу, разбитую на несколько частей:\
-`python RUBookmatedownloader.py serial <id>`
-5. Скачать серию текстовых книг, аудиокниг или комиксов:\
-`python RUBookmatedownloader.py series <id>`
+## Параметры запуска скрипта:
+*python YaBooks_downloader.py 'UUID/ссылка на книгу/серию/автора'*
+
+Примеры:
+  Книга:      https://books.yandex.ru/books/UUID
+  Аудиокнига: https://books.yandex.ru/audiobooks/UUID
+  Комикс:     https://books.yandex.ru/comicbooks/UUID
+  Серия:      https://books.yandex.ru/series/UUID
+  Автор:      https://books.yandex.ru/authors/UUID
