@@ -9,9 +9,9 @@
 ## Параметры запуска скрипта:
 *python YaBooks_downloader.py 'UUID/ссылка на книгу/серию/автора'*
 
-Примеры:
-  Книга:      https://books.yandex.ru/books/UUID
-  Аудиокнига: https://books.yandex.ru/audiobooks/UUID
-  Комикс:     https://books.yandex.ru/comicbooks/UUID
-  Серия:      https://books.yandex.ru/series/UUID
-  Автор:      https://books.yandex.ru/authors/UUID
+Примеры:  
+  Книга:      https://books.yandex.ru/books/UUID  
+  Аудиокнига: https://books.yandex.ru/audiobooks/UUID  
+  Комикс:     https://books.yandex.ru/comicbooks/UUID  
+  Серия:      https://books.yandex.ru/series/UUID  
+  Автор:      https://books.yandex.ru/authors/UUID  
