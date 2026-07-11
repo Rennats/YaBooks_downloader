@@ -2,7 +2,8 @@
 ## Установка зависимостей:
 *pip install -r requirements.txt*
 
-Для загрузки аудиокниг требуется установленный в системе FFmpeg (https://www.ffmpeg.org/download.html)  
+Для загрузки аудиокниг требуется установленный в системе FFmpeg (https://www.ffmpeg.org/download.html)
+Для Windows 10/11 удобно его установить командой в PowerShell: *winget install ffmpeg*  
 
 ## Авторизация в аккаунт Яндекс
 Для доступа к книгам используется токен, для получения которого необходима авторизация  
@@ -11,23 +12,22 @@
 ## Параметры запуска скрипта:
 *python YaBooks_downloader.py [ПАРАМЕТРЫ] [ССЫЛКА]*
 
-Параметры:  
-  --max_bitrate    Загрузка аудиокниг в максимальном качестве  
-  --min_bitrate    Загрузка аудиокниг в минимальном качестве  
+__Параметры:__  
+  *--max_bitrate*    Загрузка аудиокниг в максимальном качестве  
+  *--min_bitrate*     Загрузка аудиокниг в минимальном качестве  
 
-Ссылка может быть на:  
-  книгу        https://books.yandex.ru/books/UUID  
-  аудиокнигу   https://books.yandex.ru/audiobooks/UUID  
-  комикс       https://books.yandex.ru/comicbooks/UUID  
-  серию        https://books.yandex.ru/series/UUID  
-  автора       https://books.yandex.ru/authors/UUID  
+__Ссылка может быть на:__  
+  книгу - https://books.yandex.ru/books/UUID  
+  аудиокнигу - https://books.yandex.ru/audiobooks/UUID  
+  комикс - https://books.yandex.ru/comicbooks/UUID  
+  серию - https://books.yandex.ru/series/UUID  
+  автора - https://books.yandex.ru/authors/UUID  
 
-Примеры:  
-  python YaBooks_downloader.py AbCd1234  
-  python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234  
-  python YaBooks_downloader.py (интерактивный режим)  
+__Примеры:__  
+  *python YaBooks_downloader.py AbCd1234*  
+  *python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234*  
+  *python YaBooks_downloader.py (интерактивный режим)*  
 
 ## Скачанные книги
 Скачанные в процессе работы книги загружаются в подпапку MyBooks папки запуска скрипта.  
 При этом в ней организуются подпапки по имени автора (Фамилия Имя), внутри которой создаются подпапки по сериям, книги без серий расположены в корне папки автора  
-
