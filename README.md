@@ -9,7 +9,6 @@
 ![Авторизация](https://github.com/kettle017/RU_Bookmate_downloader/assets/37309120/bb3453eb-5d44-4410-b2e1-05193c88333e)
 
 ## Параметры запуска скрипта:
-
 *python YaBooks_downloader.py [ПАРАМЕТРЫ] [ССЫЛКА]*
 
 Параметры:
@@ -24,6 +23,11 @@
   автора       https://books.yandex.ru/authors/UUID
 
 Примеры:
-  python YaBooks_downloader.py https://books.yandex.ru/books/AbCd1234
+  python YaBooks_downloader.py AbCd1234
   python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234
   python YaBooks_downloader.py (интерактивный режим)
+
+## Скачанные книги
+Скачанные в процессе работы книги загружаются в подпапку MyBooks папки запуска скрипта.
+При этом в ней организуются подпапки по имени автора (Фамилия Имя), внутри которой создаются подпапки по сериям, книги без серий расположены в корне папки автора
+
