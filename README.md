@@ -2,16 +2,28 @@
 ## Установка зависимостей:
 *pip install -r requirements.txt*
 
+Для загрузки аудиокниг требуется установленный в системе FFmpeg (https://www.ffmpeg.org/download.html)
+
 ## Авторизация в аккаунт Яндекс
 Для доступа к книгам используется токен, для получения которого необходима авторизация
 ![Авторизация](https://github.com/kettle017/RU_Bookmate_downloader/assets/37309120/bb3453eb-5d44-4410-b2e1-05193c88333e)
 
 ## Параметры запуска скрипта:
-*python YaBooks_downloader.py 'UUID/ссылка на книгу/серию/автора'*
+
+*python YaBooks_downloader.py [ПАРАМЕТРЫ] [ССЫЛКА]*
+
+Параметры:
+  --max_bitrate    Загрузка аудиокниг в максимальном качестве
+  --min_bitrate    Загрузка аудиокниг в минимальном качестве
+
+Ссылка может быть на:
+  книгу        https://books.yandex.ru/books/UUID
+  аудиокнигу   https://books.yandex.ru/audiobooks/UUID
+  комикс       https://books.yandex.ru/comicbooks/UUID
+  серию        https://books.yandex.ru/series/UUID
+  автора       https://books.yandex.ru/authors/UUID
 
 Примеры:
-  Книга:      https://books.yandex.ru/books/UUID
-  Аудиокнига: https://books.yandex.ru/audiobooks/UUID
-  Комикс:     https://books.yandex.ru/comicbooks/UUID
-  Серия:      https://books.yandex.ru/series/UUID
-  Автор:      https://books.yandex.ru/authors/UUID
+  python YaBooks_downloader.py https://books.yandex.ru/books/AbCd1234
+  python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234
+  python YaBooks_downloader.py (интерактивный режим)

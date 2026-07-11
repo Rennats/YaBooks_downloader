@@ -27,15 +27,12 @@ class AudiobooksDownloader:
         self.downloader = downloader
 
     def ask_bitrate(self) -> str:
-        """Запрос выбора битрейта"""
         try:
             console.print("\n[bold]Выберите качество аудио:[/bold]")
             console.print("1. Максимальное (по умолчанию)")
             console.print("2. Минимальное (быстрее, меньше размер)")
             console.print("0. Выход")
-            
             choice = console.input("[bold]Выберите качество [1/2/0/] (1): [/bold]").strip()
-            
             if choice == "0":
                 raise SystemExitException()
             elif choice == "2":
@@ -47,9 +44,7 @@ class AudiobooksDownloader:
             return "max_bit_rate"
 
     async def download(self, resource: dict, metadata: Optional[dict] = None, verbose: bool = False):
-        """Скачивание аудиокниги по главам"""
         uuid = resource["uuid"]
-        
         if not metadata:
             info, metadata = await self.downloader.get_resource_info(uuid, "audiobook")
             if info and not self.downloader.check_availability(info, "audiobook"):
