@@ -373,7 +373,7 @@ class YaBooksApp:
             console.print("  серию        https://books.yandex.ru/series/UUID")
             console.print("  автора       https://books.yandex.ru/authors/UUID")
             console.print("\n[bold]Примеры:[/bold]")
-            console.print("  python YaBooks_downloader.py https://books.yandex.ru/books/AbCd1234")
+            console.print("  python YaBooks_downloader.py AbCd1234")
             console.print("  python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234")
             console.print("  python YaBooks_downloader.py (интерактивный режим)\n")
             value = input("> ").strip()
