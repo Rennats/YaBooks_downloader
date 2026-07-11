@@ -17,11 +17,11 @@ __Параметры:__
   *--min_bitrate*&ensp;&ensp;&ensp;Загрузка аудиокниг в минимальном качестве  
 
 __Ссылка может быть на:__  
-  книгу&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/books/UUID  
+  книгу&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/books/UUID  
   аудиокнигу&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/audiobooks/UUID  
-  комикс&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/comicbooks/UUID  
-  серию&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/series/UUID  
-  автора&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/authors/UUID  
+  комикс&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/comicbooks/UUID  
+  серию&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/series/UUID  
+  автора&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - https://books.yandex.ru/authors/UUID  
 
 __Примеры:__  
   *python YaBooks_downloader.py AbCd1234*  
