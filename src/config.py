@@ -4,6 +4,15 @@ import random
 from pathlib import Path
 
 BASE_URL = "https://api.bookmate.yandex.net/api/v5"
+PROXY_DEFAULT = None  # или SOCKS5 socks5://127.0.0.1:10888
+PROXY = PROXY_DEFAULT
+
+
+def set_proxy(proxy):  # делаем его глобальным для синхронизации
+    global PROXY  # в случае изменения
+    if proxy is not None:
+        PROXY = proxy
+
 
 MYBOOKS_DIR = Path("MyBooks")
 # Папка создаётся явно при старте приложения (см. YaBooks_downloader.py),

@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Optional
 from rich.console import Console
 
-from src.config import HEADERS, BASE_URL
+from src.config import HEADERS, BASE_URL, PROXY
 
 console = Console()
 
@@ -41,6 +41,8 @@ def run_auth_webview() -> Optional[str]:
     try:
         import urllib.parse
         import webview
+        import os
+        os.environ['WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS'] = f'--proxy-server={PROXY}'
 
         def on_loaded(window):
             if "yx4483e97bab6e486a9822973109a14d05.oauth.yandex.ru" in urllib.parse.urlparse(window.get_current_url()).netloc:
