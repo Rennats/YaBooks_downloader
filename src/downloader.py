@@ -8,7 +8,7 @@ import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential
 from rich.console import Console
 
-from src.config import HEADERS, URLS, MYBOOKS_DIR, MAX_CONCURRENT_DOWNLOADS
+from src.config import HEADERS, URLS, MYBOOKS_DIR, MAX_CONCURRENT_DOWNLOADS, PROXY
 from src.utils import sanitize_filename, format_series_position
 
 console = Console()
@@ -25,6 +25,7 @@ class YandexBooksDownloader:
     async def initialize(self, token: str):
         HEADERS["auth-token"] = token
         self.client = httpx.AsyncClient(
+            proxy=PROXY,
             headers=HEADERS,
             timeout=httpx.Timeout(120.0),
             follow_redirects=True,

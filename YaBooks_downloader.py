@@ -446,16 +446,44 @@ class YaBooksApp:
 
     async def run(self, url: Optional[str] = None):
         args = sys.argv[1:]
-        url_arg = None
-        for arg in args:
+        url_arg, proxy_arg = None, None
+        skip_next = False
+
+        for i, arg in enumerate(args):
+            if skip_next:
+                skip_next = False
+                continue
+
             if arg == "--max_bitrate":
                 self.downloader.bitrate_mode = "max_bit_rate"
                 self.bitrate_set = True
             elif arg == "--min_bitrate":
                 self.downloader.bitrate_mode = "min_bit_rate"
                 self.bitrate_set = True
+            elif arg == "--proxy":
+                if i + 1 < len(args) and not args[i + 1].startswith("--"):
+                    proxy_arg = args[i + 1].strip()
+                    skip_next = True
+                else:
+                    console.print("[red]Параметр --proxy требует адрес, например: --proxy http://127.0.0.1:8080[/red]")
+                    return
+            elif arg.startswith("--proxy="):
+                proxy_arg = arg.split("=", 1)[1].strip()
+                if not proxy_arg:
+                    console.print("[red]Параметр --proxy требует адрес, например: --proxy=http://127.0.0.1:8080[/red]")
+                    return
             elif not arg.startswith("--"):
                 url_arg = arg
+
+        if proxy_arg:
+            if "://" not in proxy_arg:
+                proxy_arg = f"http://{proxy_arg}"
+            if not proxy_arg.startswith(("http://", "https://", "socks4://", "socks5://")):
+                console.print(f"[red]Неподдерживаемый протокол прокси: {proxy_arg}[/red]")
+                console.print("[yellow]Поддерживаются: http://, https://, socks4://, socks5://[/yellow]")
+                return
+            self.downloader.proxy = proxy_arg
+            self.proxy_set = True
 
         if url:
             value = url
@@ -466,6 +494,7 @@ class YaBooksApp:
             console.print("[bold]Параметры:[/bold]")
             console.print("  --max_bitrate    Загрузка аудиокниг в максимальном качестве")
             console.print("  --min_bitrate    Загрузка аудиокниг в минимальном качестве")
+            console.print("  --proxy АДРЕС    Использовать прокси (http/https/socks5)")
             console.print("\n[bold]Ссылка может быть на:[/bold]")
             console.print("  книгу        https://books.yandex.ru/books/UUID")
             if self.ffmpeg_available:
@@ -478,6 +507,7 @@ class YaBooksApp:
             console.print("\n[bold]Примеры:[/bold]")
             console.print("  python YaBooks_downloader.py AbCd1234")
             console.print("  python YaBooks_downloader.py --min_bitrate https://books.yandex.ru/audiobooks/AbCd1234")
+            console.print("  python YaBooks_downloader.py --proxy http://127.0.0.1:8080 https://books.yandex.ru/books/AbCd1234")
             console.print("  python YaBooks_downloader.py (интерактивный режим)\n")
             value = input("> ").strip()
             if not value:
@@ -503,6 +533,8 @@ class YaBooksApp:
         if self.bitrate_set:
             name = "максимальное" if self.downloader.bitrate_mode == "max_bit_rate" else "минимальное"
             console.print(f"[cyan]Качество аудио: {name}[/cyan]")
+        if self.proxy_set:
+            console.print(f"[cyan]Прокси: {self.downloader.proxy}[/cyan]")
 
         try:
             if content_type == "authors":
